@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 @Transactional
 public class BookService {
-    @Autowired
+  //  @Autowired
     private BookRepository bookRepository;
     public List<Books> listAllBooks() {
         return bookRepository.findAll();

@@ -22,10 +22,10 @@ public class BookController {
         return bookService.listAllBooks();
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Books> get(@PathVariable Integer id) {
+    @GetMapping("/{bookID}")
+    public ResponseEntity<Books> get(@PathVariable Integer bookID) {
         try {
-            Books user = bookService.getBook(id);
+            Books user = bookService.getBook(bookID);
             return new ResponseEntity<Books>(user, HttpStatus.OK);
         } catch (NoSuchElementException e) {
             return new ResponseEntity<Books>(HttpStatus.NOT_FOUND);
@@ -35,7 +35,7 @@ public class BookController {
     public void add(@RequestBody Books book) {
         bookService.saveBook(book);
     }
-    @PutMapping("/{id}")
+    @PutMapping("/{bookID}")
     public ResponseEntity<?> update(@RequestBody Books book, @PathVariable Integer bookID) {
         try {
             Books existBook = bookService.getBook(bookID);
@@ -46,10 +46,12 @@ public class BookController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{bookID}")
     public void delete(@PathVariable Integer bookID) {
 
         bookService.deleteBook(bookID);
     }
+
+    //return ResponseEntity.ok().build();
 
 }
