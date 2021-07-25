@@ -237,13 +237,9 @@ else{
         <div style="max-width: 680px; margin: auto;" class="email-container">
 
             <!--[if mso]>
-
             <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="680" align="center">
-
             <tr>
-
             <td>
-
             <![endif]-->
 
  
@@ -316,13 +312,9 @@ else{
  
 
             <!--[if mso]>
-
             </td>
-
             </tr>
-
             </table>
-
             <![endif]-->
 
         </div>
@@ -343,4 +335,3 @@ echo $sql . "\n\r";
 //if ($dblink->query($sql) === TRUE) {
 
 ?>
-

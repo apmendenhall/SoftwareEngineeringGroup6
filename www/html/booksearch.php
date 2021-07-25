@@ -62,7 +62,7 @@ $list_flag = $_SESSION['list_flag'];
 
  
 
-        <!-- Visually Hidden Preheader Text : BEGIN -->
+ 
 
         <div style="display:none;font-size:1px;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;mso-hide:all;font-family: sans-serif;">
 
@@ -70,7 +70,7 @@ $list_flag = $_SESSION['list_flag'];
 
         </div>
 
-        <!-- Visually Hidden Preheader Text : END -->
+
 
  
 
@@ -90,7 +90,6 @@ $list_flag = $_SESSION['list_flag'];
 
  
 
-            <!-- Email Body : BEGIN -->
 
             <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 680px;" class="email-container">
 
@@ -209,54 +208,8 @@ $list_flag = $_SESSION['list_flag'];
 
                 </tr>
 
-                <!-- INTRO : END -->
-
  
 
-                <!-- AGENDA : BEGIN -->
-                <!-- AGENDA : END -->
-
- 
-
-                <!-- CTA : BEGIN -->
-                <!-- CTA : END -->
-
- 
-
-                <!-- SOCIAL : BEGIN -->
-
-               
-                <!-- SOCIAL : END -->
-
- 
-
-                <!-- FOOTER : BEGIN -->
-
-                <tr>
-
-                    <td bgcolor="#ffffff">
-
-                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-
-                            <tr>
-
-                                <td style="padding: 40px 40px 40px 40px; font-family: sans-serif; font-size: 12px; line-height: 18px; color: #666666; text-align: center; font-weight:normal;">
-
-                                <p style="margin: 0;">&nbsp;</p></td>
-
-                            </tr>
-
- 
-
-                        </table>
-
-                    </td>
-
-                </tr>
-
-                <!-- FOOTER : END -->
-
- 
 
             </table>
 

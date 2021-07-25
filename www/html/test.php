@@ -13,6 +13,7 @@ $last_name = "";
 $biography = "";
 $publisher_author = "";
 $author_flag = 0;
+$author_name = "";
 
 //book variables
 $ISBN = "";
@@ -46,6 +47,8 @@ $last_name = $_REQUEST['last_name'];
 $biography = $_REQUEST['biography'];
 $publisher_author = $_REQUEST['publisher_author'];
 $author_flag =  $_REQUEST['author_flag'];
+$author_name = $first_name . " " . $last_name;
+
 }
 
 if ($argc > 1) {
@@ -72,6 +75,7 @@ if ($argc > 1) {
 	$last_name = $argv[3];
 	$biography = $argv[4];
 	$publisher_author = $argv[5];
+	$author_name = $first_name . " " . $last_name;
 	
 	$author_flag = 1;
 	}
@@ -112,7 +116,7 @@ if($copies < 0){
 }
 
 
-echo "\n\r description before SQL " . $description . "\r\n";
+//echo "\n\r description before SQL " . $description . "\r\n";
 //insert randon delay to from 1 to 13m
 
 // $dblink = mysqli_connect('localhost', 'root', 'password', 'p@ssw0rd');
@@ -123,18 +127,18 @@ if (!$dblink) {
     echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
     exit;
 }
-echo "Success: A proper connection to MySQL was made!\n";
-echo "Host information: " . mysqli_get_host_info($dblink) . PHP_EOL;
+//echo "Success: A proper connection to MySQL was made!\n";
+//echo "Host information: " . mysqli_get_host_info($dblink) . PHP_EOL;
 
 $qry = mysqli_query($dblink,$sql_statement);
-print_r($qry);
+//print_r($qry);
 
 
 
 //$sql = "INSERT INTO 'Author' ('First Name', 'Last Name', 'Biography', 'Publisher') VALUES ('" .  $first_name . "', '" . $last_name . "', '" . $biography . "', '" . $publisher_author . "' )";
 if($author_flag){
-echo "in auth entry " . $biography . "\r\n";
-$sql = "INSERT INTO angel1_CENTeamProject.Author (`First Name`, `Last Name`, `Biography`, `Publisher`) VALUES ('" .  $first_name . "', '" . $last_name . "', '" . $biography . "', '" . $publisher_author . "')";
+//echo "in auth entry " . $biography . "\r\n";
+$sql = "INSERT INTO angel1_CENTeamProject.Author (`First Name`, `Last Name`, `Biography`, `Publisher`, `Author`) VALUES ('" .  $first_name . "', '" . $last_name . "', '" . $biography . "', '" . $publisher_author . "', '" . $author_name . "')";
 
 }
 
@@ -142,14 +146,153 @@ if($book_flag){
 $sql = "INSERT INTO angel1_CENTeamProject.Books (`ISBN`, `Book Name`, `Description`, `Price`, `Author`, `Publisher`, `Year Published`, `Genre`, `Copies Sold`) VALUES ('" . $ISBN . "', '" . $book_name . "', '" . $description . "', '" . $price . "', '" . $author . "', '" . $publisher_book . "', '" . $year . "', '" . $genre . "', '" . $copies_sold . "')";
 }
 
-echo $sql . "\n\r";
+
 
 //if ($dblink->query($sql) === TRUE) {
 if (mysqli_query($dblink,$sql) === TRUE) { 
-                            echo "New record created successfully";
+                            echo "New record created successfully\n";
                         } else {
                         echo "Error: " . $sql . "<br>" . $dblink->error;
                         }
 
 ?>
+
+
+<head>
+ 
+</head>
+
+<body width="100%" bgcolor="#F1F1F1" style="margin: 0; mso-line-height-rule: exactly;">
+
+    <center style="width: 100%; background: #F1F1F1; text-align: left;">
+
+ 
+
+        <!-- Visually Hidden Preheader Text : BEGIN -->
+
+        <div style="display:none;font-size:1px;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;mso-hide:all;font-family: sans-serif;">
+
+                                           Bookstore
+
+        </div>
+
+        <!-- Visually Hidden Preheader Text : END -->
+
+ 
+
+   
+
+        <div style="max-width: 680px; margin: auto;" class="email-container">
+
+            <!--[if mso]>
+
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="680" align="center">
+
+            <tr>
+
+            <td>
+
+            <![endif]-->
+
+ 
+
+            <!-- Email Body : BEGIN -->
+
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 680px;" class="email-container">
+
+ 
+
+ 
+
+ 
+
+                <!-- INTRO : BEGIN -->
+
+                <tr>
+
+
+
+                            </tr>
+
+                        </table>
+
+                    </td>
+
+                </tr>
+
+                <!-- INTRO : END -->
+ <?php if($book_flag){ ?>
+ <br> ISBN: <?php echo $ISBN ?>
+ <br> Book Name: <?php echo $book_name ?>
+ <br> Description: <?php echo $description ?>
+ <br> Price: <?php echo $price ?>
+<br> Author: <?php echo $author ?>
+<br> Publisher: <?php echo $publisher_book ?>
+<br> Year: <?php echo $year ?>
+<br> Genre: <?php echo $genre ?>
+<br> Copies Sold: <?php echo $copies_sold ?>
+<br> Ratings: <?php echo $ratings ?>
+<br><br>
+<?php } else {?>
+ <br> First Name: <?php echo $first_name ?>
+ <br> Last Name: <?php echo $last_name ?>
+ <br> Biography: <?php echo $biography ?>
+ <br> Publisher: <?php echo $publisher_author ?>
+<br><br>
+<?php } ?>
+                <!-- AGENDA : BEGIN -->
+                <!-- AGENDA : END -->
+
+ 
+
+                <!-- CTA : BEGIN -->
+                <!-- CTA : END -->
+
+ 
+
+                <!-- SOCIAL : BEGIN -->
+
+               
+                <!-- SOCIAL : END -->
+
+ 
+
+           
+
+ 
+
+            </table>
+
+            <!-- Email Body : END -->
+
+ 
+
+            <!--[if mso]>
+
+            </td>
+
+            </tr>
+
+            </table>
+
+            <![endif]-->
+
+        </div>
+
+ 
+
+    </center>
+
+</body>
+
+</html>
+
+<?php
+
+
+
+//if ($dblink->query($sql) === TRUE) {
+
+?>
+
 
