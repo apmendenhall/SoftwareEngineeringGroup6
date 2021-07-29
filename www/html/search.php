@@ -151,7 +151,8 @@ if($search_flag || $list_flag == 2 || $mode == 2){
 	$qry = "SELECT * FROM angel1_CENTeamProject.Books WHERE `ISBN` LIKE '" . $ISBN . "'";
 }
 elseif($mode == 0){
-	echo "\n\nNo search mode entered. Enter 1 for author and 2 for ISBN\n";
+	echo "\n\nNo search mode argument entered. Enter 1 for author and 2 for ISBN\n";
+	echo "put 'entry' as the data you would like to search for.\n";
 	exit(1);
 }
 else{

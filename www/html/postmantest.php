@@ -71,11 +71,9 @@ $author_name = $first_name . " " . $last_name;
 	$author_flag = 1;
 	}
 else {
+ echo "Begin your entry with specifing if you will enter a new 'book' or 'author'. enter the value as 1.\n\n";
  echo "please enter the correct number of parameters. 9 for book and 4 for author.\n";
- echo "if your enter has a space, please put the entry in quotes.\n\n";
- echo "this is argc: " . $argc . "\n";
 
-  echo "\nplease enter either books or author as your first argument, followed by details.\n";
   echo "for books, please enter ISBN, book name, description, price, author, publisher, year published, genre, and copies sold.\n";
   echo "for author, please enter first name, last name, biography, and publisher.\n\n\n";
 
