@@ -7,6 +7,7 @@ $i = 0; //counter
 $numberFound = 0; //number of matches found
 $list_flag = 0;
 $search_flag = 0;
+$mode = 0;
 
 
 if($argc > 0 )
@@ -35,6 +36,7 @@ $book_flag = 0;
 //$foundISBN = "";
 $bookID = 0;
 
+
 }
 else
 {
@@ -53,6 +55,8 @@ $book_flag =  $_REQUEST['book_flag'];
 $search_flag = $_REQUEST['search_flag'];
 $list_flag = $_REQUEST['list_flag'];
 $entry = $_REQUEST['entry'];
+$mode =  $_REQUEST['mode'];
+
 
 $first_name = $_REQUEST['first_name'];
 $last_name = $_REQUEST['last_name'];
@@ -126,7 +130,7 @@ exit(1);
 
 $sql_statement = "SELECT * FROM angel1_CENTeamProject.Books ";
 
-echo "\n\r description before SQL " . $description . "\r\n";
+//echo "\n\r description before SQL " . $description . "\r\n";
 //insert randon delay to from 1 to 13m
 
 // $dblink = mysqli_connect('localhost', 'root', 'password', 'p@ssw0rd');
@@ -137,14 +141,18 @@ if (!$dblink) {
     echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
     exit;
 }
-echo "Success: A proper connection to MySQL was made!\n";
-echo "Host information: " . mysqli_get_host_info($dblink) . PHP_EOL;
+//echo "Success: A proper connection to MySQL was made!\n";
+//echo "Host information: " . mysqli_get_host_info($dblink) . PHP_EOL;
 
-if($search_flag || $list_flag == 2 ){
+if($search_flag || $list_flag == 2 || $mode == 2){
 	if($argc == 0 ){
 		$ISBN = $entry;
 	}
 	$qry = "SELECT * FROM angel1_CENTeamProject.Books WHERE `ISBN` LIKE '" . $ISBN . "'";
+}
+elseif($mode == 0){
+	echo "\n\nNo search mode entered. Enter 1 for author and 2 for ISBN\n";
+	exit(1);
 }
 else{
 	if($argc == 0){

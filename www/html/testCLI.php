@@ -1,7 +1,12 @@
+
+
 <?php
+
 
 //this is to integrate files into the database
 if(!session_id()){
+
+	
 	session_start();
 	$_SESSION['first_name'];
 	$_SESSION['last_name'];
@@ -72,23 +77,55 @@ if ($argc > 1) {
 	
 	$author_flag = 1;
 	}
-else {
- echo "please enter the correct number of parameters. 9 for book and 4 for author.\n";
- echo "if your enter has a space, please put the entry in quotes.\n\n";
- echo "this is argc: " . $argc . "\n";
+	
+	//postman args
+	else{
+	echo "argc: " . $argc;	
+	echo "argv: " . $argv[1] . " " . $argv[2] . " " . $argv[3];
+    for ($i = 0; $i <= $argv[2]; $i++) {
+      $sql_statement = "SELECT * FROM angel1_CENTeamProject.Books ";
+	$ISBN = $argv[2];
+	$book_name = $argv[3];
+	$description = $argv[4];
+	$price = intval($argv[5]);
+	$author = $argv[6];
+	$publisher_book = $argv[7];
+	$year = intval($argv[8]);
+	$genre = $argv[9];
+	$copies_sold = intval($argv[10]);
+	//$ratings = intval($argv[11]);
 
-  echo "\nplease enter either books or author as your first argument, followed by details.\n";
-  echo "for books, please enter ISBN, book name, description, price, author, publisher, year published, genre, and copies sold.\n";
-  echo "for author, please enter first name, last name, biography, and publisher.\n\n\n";
+	$book_flag = 1;
+	}
+  }
+  
+  //elseif($argv[1] == 'author' && $argc == 6) {
+   // $sql_statement = "SELECT * FROM angel1_CENTeamProject.Author ";
+   // $first_name = $argv[2];
+//	$last_name = $argv[3];
+//	$biography = $argv[4];
+//	$publisher_author = $argv[5];
+	
+//	$author_flag = 1;
+//	}
+	
+//else {
+// echo "please enter the correct number of parameters. 9 for book and 4 for author.\n";
+// echo "if your enter has a space, please put the entry in quotes.\n\n";
+// echo "this is argc: " . $argc . "\n";
 
-exit(1);
-}
+//  echo "\nplease enter either books or author as your first argument, followed by details.\n";
+//  echo "for books, please enter ISBN, book name, description, price, author, publisher, year published, genre, and copies sold.\n";
+//  echo "for author, please enter first name, last name, biography, and publisher.\n\n\n";
 
-} else {
-  echo "\nplease enter either books or author as your first argument, followed by details.\n";
-  echo "for books, please enter ISBN, book name, description, price, author, publisher, year published, genre, and copies sold.\n";
-  echo "for author, please enter first name, last name, biography, and publisher.\n\n\n";
-	exit(1);
+//exit(1);
+//}
+
+//} else {
+ // echo "\nplease enter either books or author as your first argument, followed by details.\n";
+ // echo "for books, please enter ISBN, book name, description, price, author, publisher, year published, genre, and copies sold.\n";
+ // echo "for author, please enter first name, last name, biography, and publisher.\n\n\n";
+//	exit(1);
 }
 
 if($price < 0 || $price > 1000000){

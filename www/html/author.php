@@ -131,7 +131,7 @@ $book_flag = 0;
 
                                 <td style="padding: 40px; font-family: sans-serif; font-size: 15px; line-height: 22px; color: #555555; text-align: left; font-weight:normal;">
 
-                                                                                                                                 <form action="test.php" method="post" name="registration" id="registration">
+                                                                                                                                 <form action="https://angelinne.com/test.php" method="post" name="registration" id="registration">
 
                                                                                                                                                 <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
 
