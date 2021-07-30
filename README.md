@@ -1,7 +1,7 @@
 # SoftwareEngineeringGroup6
 
 ---------------------------
-BOOK BROWSING
+BOOK DETAILS
 ---------------------------
 
 Adding Books and Authors
