@@ -9,20 +9,20 @@ Adding Books and Authors
 
 To use the postman versions of the code, either run the code locally or use the link https://angelinne.com/BookDetailsPostman.php
 The first entry with be either 'book' or 'author' (with a value of 1) depending on what you want to add. The next values for book will be:
-ISBN
-book_name
-description
-price
-book_author
-publisher_book
-year
-genre
+ISBN, 
+book_name, 
+description, 
+price, 
+book_author, 
+publisher_book, 
+year, 
+genre, 
 copies_sold
 
 For author, the values will be:
-first_name
-last_name 
-biography
+first_name, 
+last_name, 
+biography, 
 publisher_author
 
 To use the Command Line verision, open CMD and put in:
