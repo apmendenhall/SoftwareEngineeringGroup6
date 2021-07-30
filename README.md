@@ -43,7 +43,7 @@ php search.php [ISBN/author] [args...]
 To use the form version of the code, open searchform.php in your browser or go to https://angelinne.com/search.php
 
 ---------------------------
-BOOK DETAILS
+BOOK REVIEWS
 ---------------------------
 
 This API allows you to Review a book where, you *may* leave a Comment, a Rating, Or both
