@@ -1,3 +1,6 @@
 [submodule "Review"]
 	path = Review
 	url = https://github.com/ZiadMalik1/Spring-Boot-Rest-API.git
+[submodule "Book"]
+	path = Book
+	url = https://github.com/ZiadMalik1/Restful-API
