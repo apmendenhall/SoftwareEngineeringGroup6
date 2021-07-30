@@ -36,13 +36,15 @@ public class Review {
     private Integer bookRating;
 
     public Review() {
-        this.timeStamp = (new SimpleDateFormat("yyyy/MM/dd HH:mm:ss")).format(Calendar.getInstance().getTime());
+        this.timeStamp = (new SimpleDateFormat("yyyy/MM/dd HH:mm:ss")).
+                format(Calendar.getInstance().getTime());
     }
 
     public Review(String bookTitle, String bookReview, Integer bookRating) {
         this.bookTitle = bookTitle;
         this.bookReview = bookReview;
-        this.timeStamp = (new SimpleDateFormat("yyyy/MM/dd HH:mm:ss")).format(Calendar.getInstance().getTime());
+        this.timeStamp = (new SimpleDateFormat("yyyy/MM/dd HH:mm:ss")).
+                format(Calendar.getInstance().getTime());
         this.averageRating = (double)bookRating;
         this.numberOfRatings = this.numberOfRatings + 1;
         this.bookRating = bookRating;
@@ -51,12 +53,14 @@ public class Review {
     public Review(String bookTitle, String bookReview) {
         this.bookTitle = bookTitle;
         this.bookReview = bookReview;
-        this.timeStamp = (new SimpleDateFormat("yyyy/MM/dd HH:mm:ss")).format(Calendar.getInstance().getTime());
+        this.timeStamp = (new SimpleDateFormat("yyyy/MM/dd HH:mm:ss")).
+                format(Calendar.getInstance().getTime());
     }
 
     public Review(String bookTitle, Integer bookRating) {
         this.bookTitle = bookTitle;
-        this.timeStamp = (new SimpleDateFormat("yyyy/MM/dd HH:mm:ss")).format(Calendar.getInstance().getTime());
+        this.timeStamp = (new SimpleDateFormat("yyyy/MM/dd HH:mm:ss")).
+                format(Calendar.getInstance().getTime());
         this.averageRating = (double)bookRating;
         this.numberOfRatings = this.numberOfRatings + 1;
         this.bookRating = bookRating;
@@ -67,6 +71,10 @@ public class Review {
     }
 
     public void setBookRating(Integer bookRating) {
+        if(this.bookRating != null){
+            this.averageRating=((this.getAverageRating()*this.getNumberOfRatings())
+                    -this.bookRating)+bookRating/this.numberOfRatings;
+        }
         this.bookRating = bookRating;
     }
 
@@ -103,7 +111,7 @@ public class Review {
     }
 
     public void addRating(Integer Rating) {
-        this.averageRating = this.averageRating * (double) this.numberOfRatings / ++this.numberOfRatings;
+        this.averageRating = ((this.averageRating * this.numberOfRatings) + Rating) / ++this.numberOfRatings;
     }
 
     public Double getAverageRating() {
@@ -123,6 +131,9 @@ public class Review {
     }
 
     public String toString() {
-        return "Review{id=" + this.id + ", bookTitle='" + this.bookTitle + "', bookReview='" + this.bookReview + "', timeStamp='" + this.timeStamp + "', averageRating=" + this.averageRating + ", numberOfRatings=" + this.numberOfRatings + ", bookRating=" + this.bookRating + "}";
+        return "Review{id=" + this.id + ", bookTitle='" + this.bookTitle + "', bookReview='" +
+                this.bookReview + "', timeStamp='" + this.timeStamp + "', averageRating=" +
+                this.averageRating + ", numberOfRatings=" + this.numberOfRatings
+                + ", bookRating=" + this.bookRating + "}";
     }
 }
