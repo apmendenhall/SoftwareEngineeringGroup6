@@ -67,7 +67,6 @@ public class BookReviewService {
             if (review.getBookReview().equals(bookReview)) {
                 throw new IllegalStateException("Book Review Cannot be set to:" + bookReview + ", Review is already set to this.");
             }
-            System.out.println("Hello");
             review.setBookReview(bookReview);
         }
         if (bookRating != null) {
@@ -75,14 +74,17 @@ public class BookReviewService {
                 throw new IllegalStateException("Book Rating Cannot be set to:" + bookReview + ", Ratings must be between 0-5 Inclusive.");
             }
             else {
-                System.out.println("HELLOO" + review.getAverageRating());
-                review.setBookRating(bookRating);
-                System.out.println("HELLOO" + review.getAverageRating());
-            }
-        }
 
-        else if (bookRating == null && bookReview == null){
-            System.out.println("Hello");
+                if (review.getBookTitle().equals((this.repository.findByTitle(review.getBookTitle()).get(0)).getBookTitle())) {
+                    review.calculateNewAverage(bookRating);
+                    review.setBookRating(bookRating);
+                    for (int i = this.repository.findByTitle(review.getBookTitle()).size() - 1; i > -1; i--) {
+                        Review pastBook = (Review) this.repository.findByTitle(review.getBookTitle()).get(i);
+                        pastBook.setAverageRating(review.getAverageRating());
+                        this.repository.save(pastBook);
+                    }
+                }
+            }
         }
     }
 }

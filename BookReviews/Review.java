@@ -70,13 +70,7 @@ public class Review {
         return this.bookRating;
     }
 
-    public void setBookRating(Integer bookRating) {
-        if(this.bookRating != null){
-            this.averageRating=((this.getAverageRating()*this.getNumberOfRatings())
-                    -this.bookRating)+bookRating/this.numberOfRatings;
-        }
-        this.bookRating = bookRating;
-    }
+    public void setBookRating(Integer bookRating) { this.bookRating=bookRating; }
 
     public String getBookTitle() {
         return this.bookTitle;
@@ -128,6 +122,12 @@ public class Review {
 
     public void setNumberOfRatings(Integer numberOfRatings) {
         this.numberOfRatings = numberOfRatings;
+    }
+
+    public void calculateNewAverage(Integer bookRating){
+        Double Total = (this.averageRating * this.numberOfRatings)-(this.bookRating)+(bookRating);
+        Double newAverage = (Total/this.numberOfRatings);
+        setAverageRating(newAverage);
     }
 
     public String toString() {
