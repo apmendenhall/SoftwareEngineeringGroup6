@@ -8,10 +8,12 @@ The books can be sorted based on genre, copies sold, and ratings.
 
 
 ## Available Functions
-booksWithXgenre(int x) - Retrieves all of the books with the inputted genre X<br />
-topKSellers(int k) - Retrieves the top K books with the most copies sold where K is an integer of the user's choice<br />
-booksOfXRatingAndHigher(int x) - Retrieves all of the books that have a rating of X and higher where X is an integer from 1 - 5<br />
-XBooksAtATime(int X, int start) - Retrieves books from the database where the indices of the rows fall within the interval <id>[start, start + X)<br />
+booksWithXgenre(int x) - Retrieves all books from the database whose genre is 'x' where 'x' is an input of the user's choice.<br />
+topKSellers(int k) - Retrieves the top 'k' books with the most copies sold where 'k' is an integer of the user's choice.<br />
+booksOfXRatingAndHigher(int x) - Retrieves all of the books that have a rating of 'x' and higher where 'x' is an integer from 1 - 5 and 
+it is an input of the user's choice.<br />
+XBooksAtATime(int X, int start) - Retrieves 'x' books from the database where the indices of the rows fall within the interval <id>[start, start + x),
+where 'x' is the input of the user's choice and 'start' is also an input of the user's choice.<br />
 
 ## GetMappings for each function
 booksWithXgenre(int x) - /bookswithxgenre<br />
