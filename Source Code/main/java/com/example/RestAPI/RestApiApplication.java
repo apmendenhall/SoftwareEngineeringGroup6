@@ -1,13 +1,12 @@
-package CEN.Team6.API;
+package com.example.RestAPI;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ApiApplication  {
-
+public class RestApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ApiApplication.class, args);
+		SpringApplication.run(RestApiApplication.class, args);
 	}
 }
