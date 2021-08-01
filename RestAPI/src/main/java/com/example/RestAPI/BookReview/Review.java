@@ -126,7 +126,15 @@ public class Review {
 
     public void calculateNewAverage(Integer bookRating){
         Double Total = (this.averageRating * this.numberOfRatings)-(this.bookRating)+(bookRating);
+        System.out.println(Total);
         Double newAverage = (Total/this.numberOfRatings);
+        System.out.println(newAverage);
+        setAverageRating(newAverage);
+    }
+
+    public void calculateNewAverageWithNull(Integer bookRating){
+        Double Total = (this.averageRating * this.numberOfRatings)-(this.bookRating)+(bookRating);
+        Double newAverage = (Total/++this.numberOfRatings);
         setAverageRating(newAverage);
     }
 
