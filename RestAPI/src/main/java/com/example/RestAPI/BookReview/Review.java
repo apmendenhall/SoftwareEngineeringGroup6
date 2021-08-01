@@ -138,6 +138,12 @@ public class Review {
         setAverageRating(newAverage);
     }
 
+    public void calculateNewAverageWithDelete(Integer bookRating){
+        Double Total = (this.averageRating * this.numberOfRatings)-(this.bookRating)+(bookRating);
+        Double newAverage = (Total/--this.numberOfRatings);
+        setAverageRating(newAverage);
+    }
+
     public String toString() {
         return "Review{id=" + this.id + ", bookTitle='" + this.bookTitle + "', bookReview='" +
                 this.bookReview + "', timeStamp='" + this.timeStamp + "', averageRating=" +
