@@ -1,8 +1,8 @@
 package com.example.demo.UserRegistration;
 
-import com.example.demo.UserInfo.UserInfo;
-import com.example.demo.UserInfo.UserLogin;
-import com.example.demo.UserInfo.UserRole;
+import com.example.demo.userInfo.UserInfo;
+import com.example.demo.userInfo.UserLogin;
+import com.example.demo.userInfo.UserRole;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

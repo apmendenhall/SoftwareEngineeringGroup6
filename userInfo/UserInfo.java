@@ -1,10 +1,9 @@
-package com.example.demo.UserInfo;
+package com.example.demo.userInfo;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Optional;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -26,14 +25,14 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 public class UserInfo implements UserDetails {
     @SequenceGenerator(
-            name = "users",
-            sequenceName = "users",
+            name = "student_sequence",
+            sequenceName = "student_sequence",
             allocationSize = 1
     )
     @Id
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "users"
+            generator = "student_sequence"
     )
     private Long id;
     private String firstName;
@@ -65,19 +64,21 @@ public class UserInfo implements UserDetails {
     public String getPassword() {
         return password;
     }
-
+    @Override
     public String getUsername() {
         return email;
     }
 
-    public Optional<String> getFirstName() { return Optional.ofNullable(firstName); }
-
-    public Optional<String> getLastName() {
-        return Optional.ofNullable(lastName);
+    public String getFirstName() {
+        return firstName;
     }
 
-    public Optional<String> getHomeAddress() {
-        return Optional.ofNullable(homeAddress);
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getHomeAddress() {
+        return homeAddress;
     }
 
     @Override

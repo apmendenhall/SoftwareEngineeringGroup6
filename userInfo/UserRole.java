@@ -1,4 +1,4 @@
-package com.example.demo.UserInfo;
+package com.example.demo.userInfo;
 
 public enum UserRole {
     USER,
