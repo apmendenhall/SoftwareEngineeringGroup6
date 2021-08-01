@@ -71,16 +71,26 @@ public class BookReviewService {
         }
         if (bookRating != null) {
             if (bookRating >= 6 || bookRating <= -1) {
-                throw new IllegalStateException("Book Rating Cannot be set to:" + bookReview + ", Ratings must be between 0-5 Inclusive.");
+                throw new IllegalStateException("Book Rating Cannot be set to:" + bookRating + ", Ratings must be between 0-5 Inclusive.");
             }
             else {
-
-                if (review.getBookTitle().equals((this.repository.findByTitle(review.getBookTitle()).get(0)).getBookTitle())) {
+                if (review.getBookTitle().equals((this.repository.findByTitle(review.getBookTitle()).get(0)).getBookTitle()) && review.getBookRating() != null) {
                     review.calculateNewAverage(bookRating);
                     review.setBookRating(bookRating);
                     for (int i = this.repository.findByTitle(review.getBookTitle()).size() - 1; i > -1; i--) {
                         Review pastBook = (Review) this.repository.findByTitle(review.getBookTitle()).get(i);
                         pastBook.setAverageRating(review.getAverageRating());
+                        this.repository.save(pastBook);
+                    }
+                }
+                else if (review.getBookTitle().equals((this.repository.findByTitle(review.getBookTitle()).get(0)).getBookTitle()) && review.getBookRating() == null) {
+                    review.setBookRating(0);
+                    review.calculateNewAverageWithNull(bookRating);
+                    review.setBookRating(bookRating);
+                    for (int i = this.repository.findByTitle(review.getBookTitle()).size() - 1; i > -1; i--) {
+                        Review pastBook = (Review) this.repository.findByTitle(review.getBookTitle()).get(i);
+                        pastBook.setAverageRating(review.getAverageRating());
+                        pastBook.setNumberOfRatings(review.getNumberOfRatings());
                         this.repository.save(pastBook);
                     }
                 }
