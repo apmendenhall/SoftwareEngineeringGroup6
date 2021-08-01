@@ -188,8 +188,26 @@ GET Call: localhost8080:/xbooksatatime?x=5&start=3
 
 
 
+ 
 
+---------------------
+Profile Management:
+----------------------
 
-
+## Purpose of feature 
+To allow a user to create an acoount and maintain their account by their usernames.
+ 
+## Usage
+localhost:8080/api/v1/registration
+This will allow you to create a user.
+This includes:
+ - Username
+ - Password
+ - First name 
+ - Last name
+ - Email
+ - Home Address
+ 
+ 
 
 
