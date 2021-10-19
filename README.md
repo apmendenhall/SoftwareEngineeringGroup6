@@ -103,6 +103,13 @@ DELETE `/studentId`
 
 Allows you to Delete a review with Student ID: {`studentId`}
 
+### Book Average Rating ###
+
+GET `/{bookTitle}`
+
+Returns Book Rating Average for Specified Book Title
+
+
 
 # WishlistFinal
 
@@ -168,23 +175,23 @@ XBooksAtATime(int X, int start) - /xbooksatatime<br />
 
 ## How to use
 In order to use this feature, you must follow the following template to make calls:<br />
-"localhost8080:/<id>[DESIRED GET MAPPING]?[OPTIONAL_PARAMETER_1]&[OPTIONAL PARAMETER 2]"<br />
+"localhost:8080/<id>[DESIRED GET MAPPING]?[OPTIONAL_PARAMETER_1]&[OPTIONAL PARAMETER 2]"<br />
 For example, if you wanted to retrieve all of the books with the genre "mystery", you would enter the following:<br />
-localhost8080:/bookswithxgenre?x=mystery<br />
+localhost:8080/bookswithxgenre?x=mystery<br />
 This will retrieve all of the books with that exact genre.
 
 ## Examples
 Goal: Retrieve books with "horror" genre<br />
-GET Call: localhost8080:/bookswithxgenre?x=horror
+GET Call: localhost:8080/bookswithxgenre?x=horror
 
 Goal: Retrieve the top 10 sellers<br />
-GET Call: localhost8080:/topksellers?k=10
+GET Call: localhost:8080/topksellers?k=10
 
 Goal: Retrieve books with a rating of 3 and higher<br />
-GET Call: localhost8080:/booksofxratingandhigher?x=3
+GET Call: localhost:8080/booksofxratingandhigher?x=3
 
 Goal: Retrieve 5 books starting at row 3 in the database (retrieve books from the range [3, 8)<br />
-GET Call: localhost8080:/xbooksatatime?x=5&start=3
+GET Call: localhost:8080/xbooksatatime?x=5&start=3
 
 
 
